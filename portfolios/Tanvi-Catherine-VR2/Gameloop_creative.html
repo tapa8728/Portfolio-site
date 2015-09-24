@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+ <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+<link href="bootstrap.min.css" rel="stylesheet">
+
+<script language="javascript" src="jquery.hotkeys.js" type ="text/javascript"></script>
+<script language="javascript" src="key_status.js" type="text/javascript"></script>
+<link href="creative-style.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+<title>Space Travel</title>
+	
+	<script type="text/javascript">
+		document.addEventListener("keydown", keydownEvent, false);
+		document.addEventListener("keyup", keyupEvent, false);
+	
+		function keydownEvent(e) {
+			if (!e) {
+				e = event;
+			}
+		}
+		
+		function keyupEvent(e) {
+			if (!e) {
+				e = event;
+			}
+		}
+		
+		var maxFps = 60; //max FPS allowed
+		
+		//Update FPS based on value chosen in the slider
+		function updateFrameRate(newFrameRate)
+		{
+			maxFps = newFrameRate;
+			document.getElementById("FrameRateLabel").innerHTML=maxFps;
+		}
+		
+		$(window).bind("load", function() {
+		
+			//************** VARIABLES ****************************
+			//Variables representing the canvas and the canvas' context (the context is used for actually drawing on the canvas)
+			var canvas = document.getElementById("canvas");
+			var context = canvas.getContext("2d");
+			
+			//canvas.width = window.innerWidth;
+			//canvas.height = window.innerHeight;
+
+			//The ball that we will be drawing on the canvas
+			var ball = {x:canvas.width/2, //the x location of the ball
+						y:canvas.height/2, //the y location of the ball
+						radius:10, //the radius of the ball
+						fillColor:"red", //what color should the ball be
+						strokeColor:"grey", //what color should the outline of the ball be
+						velocity_x:0.05, //how fast the ball will move in the x direction
+						velocity_y:0.05,
+
+						}; //how fast the ball will move in the y direction
+
+			//for interpolated rendering
+			var ballLastPosx=0;
+			var ballLastPosy=0;
+
+			var fps = 0;
+			var framesThisSecond = 0;
+			
+			//to do something ever 1000  milliseconds
+			//we are updating "fps" with "framesThisSecond" ever second in red
+			setInterval(function() { fps = framesThisSecond; framesThisSecond = 0; }, 1000);
+			
+			var lastFrameTimeMs = 0; //last time the loop was run
+			
+			var framecount = 0;
+			
+			//we want to simulate 1000 ms/60 FPS = 16.67 ms per frame every time we run update()
+			var timestep = 1000/maxFps;
+			
+			//start us off the first time
+			//requestAnimationFrame lets the browser define FPS and will draw ur animation at the next available opportunity. 
+			requestAnimationFrame(mainLoop);
+			
+			var delta = 0;
+			
+			//Game Loop
+			function mainLoop(timestamp) {
+				// Throttle the frame rate.    
+				if (timestamp < lastFrameTimeMs + (1000 / maxFps)) {
+					requestAnimationFrame(mainLoop);
+					return;
+				}
+				
+				delta += timestamp - lastFrameTimeMs;
+				lastFrameTimeMs = timestamp;
+				
+				while(delta >= timestep){
+					update(timestep); 
+					delta = delta - timestep;
+				} 
+				
+				
+				//*************** PROCESS < > ^ etc ****************
+				processInput();
+				//*************** UPDATE ****************
+				//update(delta);
+				//*************** DRAW ****************
+				draw(delta/timestep);
+				
+				++framecount;
+				
+				//Count a frame as rendered
+				framesThisSecond++;
+				
+				//*************** to continue the animation ****************
+				requestAnimationFrame(mainLoop);
+			}
+			
+			function delay(millis)
+			{
+				var date = new Date();
+				var curDate = null;
+				do { curDate = new Date(); }
+				while(curDate-date < millis);
+			}
+			
+			//************** PROCESS INPUT .. Arrowkeys ****************************
+			//Here is where we would read the user's input. We will fill this in later
+			function processInput() {
+				if(keydown.left) {
+					ball.velocity_x = ball.velocity_x - .1;
+				}
+				if(keydown.up){
+					ball.velocity_y = ball.velocity_y - .1;
+				}
+				
+				if (keydown.right) {
+					ball.velocity_x = ball.velocity_x + .1;
+				}
+				
+				if (keydown.down) {
+					ball.velocity_y = ball.velocity_y + .1;
+				}
+			}
+			
+			
+			//************** UPDATE ****************************
+			//Here is where we would update the state of our game or simulation (e.g., make the ball move). 
+			// add velocity to the position of the ball
+			function update(delta) {
+				//save the position from the last update
+				ballLastPosx = ball.x;
+				ballLastPosy = ball.y;
+
+				ball.x = ball.x + ball.velocity_x * delta;
+				ball.y = ball.y + ball.velocity_y * delta;
+				
+				//to keep the ball within bounds of defined canvas
+				if (ball.x > canvas.width) {
+					ball.velocity_x = -ball.velocity_x;
+					ball.x = canvas.width;
+				}
+				
+				if (ball.x < 0) {
+					ball.velocity_x = -ball.velocity_x;
+					ball.x = 0;
+				}
+				
+				if (ball.y > canvas.height) {
+					ball.velocity_y = -ball.velocity_y;
+					ball.y = canvas.height;
+				}
+				
+				if (ball.y < 0) {
+					ball.velocity_y = - ball.velocity_y;
+					ball.y = 0;
+				}
+			}
+			
+			//************** DRAW ****************************
+			//Draw the scene. Here we simply erase what was previously drawn (e.g., where the ball used to be), then draw it again
+			function draw(interp) {
+				
+				//clear our canvas
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				
+				//draw the spaceship
+				var img = document.getElementById("spaceship");
+				ball.x = (ballLastPosx + (ball.x - ballLastPosx) * interp);
+				ball.y = (ballLastPosy + (ball.y - ballLastPosy) * interp);
+    			context.drawImage(img, ball.x, ball.y);
+				
+				//to display the frames per second (in red) on top left corner
+				document.getElementById("currentFPS").innerHTML=fps;
+			}
+		
+		});
+	</script>
+	
+	
+	<body>
+
+		<img id="spaceship" width="75" height="75" src="images/rsz_1spaceship.png" alt="The Scream">
+		<p class="heading text-center"><img id="spaceship2" width="50" height="100" src="images/rsz_1spaceship.png" alt="The Scream">Space Travels <img id="spaceship2" width="75" height="100" src="images/BTarpKMgc.png" alt="The Scream"></p>
+		<br>
+		<div class="stars"></div>
+		<div class="twinkling"></div>
+		<div class="clouds"></div>
+		<canvas class="text-center" id="canvas" width="1100" height="460" >
+		 Your browser does not support the canvas element
+	 </canvas>
+		 <input type="range"  min="1" max="60" value="60" onchange="updateFrameRate(this.value)"/>
+		 <span id="FrameRateLabel">60</span>
+		 <span id="currentFPSLabel">Current FPS</span>
+		 <span id="currentFPS">0</span>
+		 <span id="FrameRateLabel2">Choose FPS</span>
+		 <p class="skills1">Tanvi Parikh &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Catherine Diaz</p>
+
+	</body>
+	
+</html>

@@ -1,0 +1,157 @@
+/*Lets start with the cloud formation rather*/
+
+/*The container will also serve as the SKY*/
+
+
+body {
+	/*To hide the horizontal scroller appearing during the animation*/
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #9FA8DA;
+}
+
+#canvas{
+	position: absolute;
+	top: 130px;
+	left: 140px;
+	z-index: 5;
+	-webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+   /* background-color: black;*/
+}
+
+.heading{
+	display: block;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 5em;
+    font-weight: 700;
+}
+
+input[type="range"]{
+   position: absolute;
+   top: 40%;
+   transform: rotate(270deg);
+   width: 10%;
+}
+
+#FrameRateLabel{
+	position: absolute;
+	top: 160px;
+	left: 60px;
+	font-size: 2em;
+	font-weight: 400;
+}
+
+#FrameRateLabel2{
+	position: absolute;
+	top: 150px;
+	left: 40px;
+	font-size: 1em;
+	font-weight: 400;
+}
+
+#currentFPSLabel{
+	position: absolute;
+	top: 340px;
+	left: 40px;
+	font-size: 1em;
+	font-weight: 400;
+}
+
+#currentFPS{
+	position: absolute;
+	top: 360px;
+	left: 60px;
+	font-size: 2em;
+	font-weight: 400;
+}
+/* starry background  */
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-webkit-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-moz-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-ms-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+@keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-webkit-keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-moz-keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-ms-keyframes move-clouds-back {
+    from {background-position: 0;}
+    to {background-position:10000px 0;}
+}
+
+.stars, .twinkling, .clouds {
+  position:absolute;
+  top: 130px;
+  left: 140px;
+  right:0;
+  bottom:0;
+  width: 1100px;
+  height: 460px;
+  display:block;
+}
+
+.stars {
+  background:#000 url(images/stars.png) repeat top center;
+  z-index:1;
+}
+
+.twinkling{
+  background:transparent url(images/twinkling.png) repeat top center;
+  z-index:2;
+
+  -moz-animation:move-twink-back 200s linear infinite;
+  -ms-animation:move-twink-back 200s linear infinite;
+  -o-animation:move-twink-back 200s linear infinite;
+  -webkit-animation:move-twink-back 200s linear infinite;
+  animation:move-twink-back 200s linear infinite;
+}
+
+.clouds{
+    background:transparent url(images/clouds.png) repeat top center;
+    z-index:4;
+
+  -moz-animation:move-clouds-back 200s linear infinite;
+  -ms-animation:move-clouds-back 200s linear infinite;
+  -o-animation:move-clouds-back 200s linear infinite;
+  -webkit-animation:move-clouds-back 200s linear infinite;
+  animation:move-clouds-back 200s linear infinite;
+}
+
+#spaceship{
+	display:none;
+}
+
+.skills1 {
+	position: absolute;
+	text-align: left;
+	top: 600px;
+	display: block;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 2em;
+    font-weight: 300;
+    color: white;
+}
