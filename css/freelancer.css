@@ -1,8 +1,6 @@
-/*!
- * Start Bootstrap - Freelancer Bootstrap Theme (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
+/* Bouncing downward arrow */
+
+
 
 body {
     overflow-x: hidden;
@@ -22,18 +20,23 @@ a:focus,
 a:active,
 a.active {
     outline: 0;
-    color: #18bc9c;
+    color: white;
 }
 
 h1,
-h2,
 h3,
-h4,
 h5,
+h2,
 h6 {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
+}
+
+h4,
+{
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 450;
 }
 
 hr.star-light,
@@ -63,7 +66,8 @@ hr.star-light {
 
 hr.star-light:after {
     color: #fff;
-    background-color: #18bc9c;
+    background-color: transparent;
+    padding: 0 .25em;
 }
 
 hr.star-primary {
@@ -82,12 +86,16 @@ hr.star-primary:after {
 header {
     text-align: center;
     color: #fff;
-    background: #18bc9c;
+    background-image: url('../img/front-image-edit.jpg');
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    background-position:center;
 }
 
 header .container {
     padding-top: 100px;
-    padding-bottom: 50px;
+    padding-bottom: 50px;  
+
 }
 
 header img {
@@ -108,10 +116,12 @@ header .intro-text .skills {
     font-weight: 300;
 }
 
+
+
 @media(min-width:768px) {
     header .container {
-        padding-top: 200px;
-        padding-bottom: 100px;
+        padding-top: 100px;
+        /*padding-bottom: 100px; */
     }
 
     header .intro-text .name {
@@ -461,3 +471,234 @@ footer .footer-below {
 .well{
     background: rgb(22, 105, 173);
 }
+
+/* button circle CSS */
+.btn-circle {
+    width: 70px;
+    height: 70px;
+    margin-top: 15px;
+    padding: 7px 16px;
+    border: 2px solid #fff;
+    border-radius: 100%!important;
+    font-size: 40px;
+    color: #fff;
+    background: 0 0;
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+
+.btn-circle:hover,
+.btn-circle:focus {
+    outline: 0;
+    color: #fff;
+    background: rgba(255,255,255,.1);
+}
+
+.btn-circle i.animated {
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 1s;
+    -moz-transition-property: -moz-transform;
+    -moz-transition-duration: 1s;
+}
+
+.btn-circle:hover i.animated {
+    -webkit-animation-name: pulse;
+    -moz-animation-name: pulse;
+    -webkit-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+}
+
+@-webkit-keyframes pulse {    
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-moz-keyframes pulse {    
+    0% {
+        -moz-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -moz-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    100% {
+        -moz-transform: scale(1);
+        transform: scale(1);
+    }
+}
+.btn-circle {
+    width: 70px;
+    height: 70px;
+    margin-top: 15px;
+    padding: 7px 16px;
+    border: 2px solid #fff;
+    border-radius: 100%!important;
+    font-size: 40px;
+    color: #fff;
+    background: 0 0;
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+
+.btn-circle:hover,
+.btn-circle:focus {
+    outline: 0;
+    color: #fff;
+    background: rgba(255,255,255,.1);
+}
+
+.btn-circle i.animated {
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 1s;
+    -moz-transition-property: -moz-transform;
+    -moz-transition-duration: 1s;
+}
+
+.btn-circle:hover i.animated {
+    -webkit-animation-name: pulse;
+    -moz-animation-name: pulse;
+    -webkit-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+}
+
+@-webkit-keyframes pulse {    
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-moz-keyframes pulse {    
+    0% {
+        -moz-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -moz-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    100% {
+        -moz-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+
+/*WELLS*/
+
+.time-well{
+    display: inline-block;
+    background: transparent;
+    border: solid 1.5px white;
+}
+.tech-well{
+    display: inline-block;
+    background: rgb(55, 71, 79);
+}
+
+.desc-well{
+    background: rgb(38, 50, 56);
+    display: inline-block
+}
+
+#head-title {
+    position: relative;
+    bottom: 130px;
+}
+
+.title-white {
+    color: white;
+}
+
+#grad1 {
+    height: 100%;
+    width:100%;
+    background: -webkit-linear-gradient(white, #2c3e50); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(white, #2c3e50); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(white, #2c3e50); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, #2c3e50); /* Standard syntax (must be last) */
+}
+
+#grad2 {
+    height: 100%;
+    width: 100%;
+    background: -webkit-linear-gradient(#080c10, #111820, #2c3e50, #d4d8dc, white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#080c10, #111820, #2c3e50, #d4d8dc, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#080c10, #111820, #2c3e50, #d4d8dc,white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#080c10, #111820, #2c3e50, #d4d8dc, white); /* Standard syntax (must be last) */
+
+}
+
+/*custommizing the tabs*/
+.nav-tabs{
+  background-color:transparent;
+  width: 100%;
+}
+.tab-content{
+    background-color:#303136;
+    color:#fff;
+    padding:5px
+}
+.nav-tabs > li > a{
+  border: medium none;
+}
+.nav-tabs > li > a:hover{
+  background-color: #303136 !important;
+    border: medium none;
+    border-radius: 0;
+    color:#fff;
+}
+
+.nav-tabs {
+    border-bottom: 2px solid #ecf0f1;
+}
+
+.nav {
+    margin-bottom: 10px;
+    padding-left: 350px;
+    list-style: none;
+}
+
+/* Smartphones ----------- */
+@media only screen and (max-width: 760px) {
+  #myCanvas { display: none; }
+  #head-title { position: inherit; bottom: 0px;}
+}
+

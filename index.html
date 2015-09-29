@@ -16,18 +16,42 @@
 
     <!-- Custom CSS -->
     <link href="css/freelancer.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link type="text/css" href="csshake.css">
+   
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- bubbled header -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="http://s3.amazonaws.com/codecademy-content/courses/hour-of-code/js/alphabet.js"></script>
+
+    <script type="text/javascript">
+        $( document ).ready(function() {      
+            var is_mobile = false;
+
+            if( $('#myCanvas').css('display')=='none') {
+                is_mobile = true;       
+            }
+
+            // now i can use is_mobile to run javascript conditionally
+
+            if (is_mobile == true) {
+                //Conditional script here
+                $('#head-title').css({"position": "inherit", "bottom": "0px"});
+                //$("p").css({"background-color": "yellow", "font-size": "200%"});
+            }
+
+            $("#js-tabs-example").bootstrap-responsive-tabs({
+                minTabWidth: "100",
+                maxTabWidth: "200"
+            });
+         });
+    </script>
 
 </head>
 
@@ -44,7 +68,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">Tanvi</a>
+                <a class="navbar-brand" href="#about-tanvi">Who is Tanvi?</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -56,18 +80,9 @@
                     <li class="page-scroll">
                         <a href="#portfolio">Portfolio</a>
                     </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CV <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        
-                        <li class="page-scroll tab-pane fade"><a data-toggle="tab" href="#education">Education</a></li>
-                        <li class="page-scroll"><a data-toggle="tab" href="#workex">Work Experience</a></li>
-                        <li class="page-scroll"><a data-toggle="tab" href="#projects">Projects</a></li>
-                        <li class="page-scroll"><a data-toggle="tab" href="#awards">Awards</a></li>
-                        <li class="page-scroll"><a data-toggle="tab" href="#activities">Activities</a></li>
-                      </ul>
+                    <li class="page-scroll">
+                        <a href="#about">CV</a>
                     </li>
-                    
                     <li class="page-scroll">
                         <a href="#contact">Contact</a>
                     </li>
@@ -80,175 +95,399 @@
 
     <!-- Header -->
     <header>
-        <div class="container">
+        <div id="top-cover" class="container">
             <div class="row">
                 <div class="col-lg-12">
                      <div class="intro-text">
-                        <span class="name">Tanvi Parikh</span>
-                        <hr class="star-light">
-                        <span class="skills">Master's Student - Software Developer - Aspiring UX Designer</span>
-                        <ul class="list-inline">
-                            <li>
-                                <a href="https://www.linkedin.com/in/tanviparikh91" target="_false" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a href="https://plus.google.com/110226454798208852839/posts"  target="_false" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/tapa8728" target="_false" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a>
-                            </li>
-                        </ul>
-                    </div>
+                        <!--<span class="name">Tanvi Parikh</span>-->
+                        
+                        <!-- Bubbled Header -->
+                        <canvas id="myCanvas" width=1000 height=350></canvas>
+                        <script type="text/javascript" src="http://s3.amazonaws.com/codecademy-content/courses/hour-of-code/js/bubbles.js"></script>
+                        <script type="text/javascript">
+
+                                    var myName = "Tanvi Parikh";
+                                    var red = [0, 0, 0];
+                                    var orange = [0, 0, 0];
+                                    var green = [0, 0, 0];
+                                    var blue = [0, 0, 0];
+                                    var purple = [0, 0, 0];
+                                    var letterColors = [red, orange, green, blue, purple];
+
+                                    drawName(myName, letterColors);
+
+                                    if (10 < 3) {
+                                      bubbleShape = 'square';
+                                    } else {
+                                      bubbleShape = 'circle';
+                                    }
+
+                                    bounceBubbles();
+                        </script>
+                        
+                        <!-- End of bubbled header-->
+                        <!--<hr class="star-light"> -->
+                        <div id="head-title">
+                            <br>
+                            <span class="skills">Master's Student - Software Developer - Aspiring UX Designer</span>
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="https://www.linkedin.com/in/tanviparikh91" target="_false" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://plus.google.com/110226454798208852839/posts"  target="_false" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/tapa8728" target="_false" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a>
+                                </li>
+                            </ul>
+                            <br><br>
+                            <!-- Down arrow -->
+                            <center><a href="#about" class="btn btn-circle page-scroll animated infinite bounce ">
+                                <i class="fa fa-angle-double-down animated"></i>
+                            </a></center>
+                         </div>   
+                        </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Portfolio Grid Section -->
-    <section id="portfolio">
-        <div class="container">
+    <!-- ABOUT TANVI -->
+    <div id="grad2">
+        <section id="about-tanvi">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Portfolio</h2>
-                    <hr class="star-primary">
-                    <h4>Upcoming and building designs .... </h4>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="portfolios\Tanvi-Catherine-VR2\images\spaceship.png" height="300" width="360" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="portfolios\cisco-lunch-connect\csc.png" height="300" width="360" alt="">
-                    </a>
-                </div>
-                <!--<div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/circus.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/game.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/safe.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
-                    </a>
-                </div>-->
-            </div> 
-        </div>
-    </section>
-
-    <!-- CV Section -->
-    <section class="success" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>CV</h2>
-                    <hr class="star-light">
-                </div>
-            </div>
-            <div class="row">
-                <div class="container">
-                    
-                      <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#education">Education</a></li>
-                        <li><a data-toggle="tab" href="#workex">Work Exp.</a></li>
-                        <li><a data-toggle="tab" href="#projects">Projects</a></li>
-                        <li><a data-toggle="tab" href="#activities">Activities</a></li>
-                        <li><a data-toggle="tab" href="#awards">Awards</a></li>
-                      </ul>
-
-                      <div class="tab-content">
-                        <div id="education" class="tab-pane fade in active">
-                          <h3>Education</h3>
-                          <p>Master's in Computer Science at <b>University of Colorado Boulder, USA</b> (2014-2016)</p>
-                          <
-                          <p>Bachelor of Computer Engineering at <b>University of Mumbai, India</b> (2009-2013)</p>
-                        </div>
-                        <div id="workex" class="tab-pane fade">
-                          <h3>Work Experience</h3>
-                          <p>Software Engineer Intern at <b> Cisco Inc, San Jose CA </b> (May-Aug 2016)</p>
-                        </div>
-                        <div id="projects" class="tab-pane fade">
-                          <h3>Professional/Course Projects</h3>
-                          <p>The projects I did were : </p>
-                          <p>1. <b>“Thinker” – Academic Spin-off of Tinder<b> 
-                            <div class="well well-sm"> Tech explored - Node.js, ReactJs, Bootstrap,  Macaw, MongoDB  <br>                    
-                                Led a team of 3 using Rapid-Prototyping to develop a web-service that will match student or tutor profiles based on interests, location, courses to promote “study-buddies” and offline tutoring. Designed the recommendation algorithm to improve match-accuracy.
-                                </div>
-2.   “Twiner”-Tweet Miner using-Apache Storm, MongoDB, AWS (cluster)                                     Aug-Dec 2014 
-Developed a web-based application for real-time twitter data processing using Apache Storm for data analysis i.e. Popularity Index, frequency & observing time, location and user trends. Observed implementation on cluster.
-
-3.   Concurrent Network Stack Implementation for Performance Analysis using- C, C++, Pthreads, Pointers, Semaphores, Mutexes       Aug-Dec 2014
-Constructed the ISO-OSI protocol stack using TCP/IP & UDP socket programming, multithreading & Linux system calls to analyze performance by exchanging large number of messages concurrently between hosts. Achieved 10% decrease in overhead by implementing pointers and pthreads.
-
-4.   “Social Dining”-iOS Application using-Xcode, Objective C                                                                Fall 2014
-Participated in a group project -“Social Dining” application & developed the user-experience & marketing strategy to increase customer base.
-
-5.  “Study Portal”-Website using-PHP, HTML, CSS                                                                                           May-Aug 2012
-Led a team of four using Spiral SDLC & decreased post-production design changes with Technologies used – MS Access, PHP, JavaScript and Photoshop for UI. Chosen as the Official College Website by the Head of Department.
-
-6.  Alumni Database System using Database Express, HTML                                                                           Jan-Mar 2012
-Led a team of four and used Spiral SDLC to qualitatively shorten design iteration cycles & awarded “Most Creative Project” for design and functionality. Technologies used – HTML, CSS, Database Express (Oracle 10g Lite) and enhanced UI using Photoshop CS5. </p>
-
-                        </div>
-                        <div id="activities" class="tab-pane fade">
-                          <h3>Leadership Activities</h3>
-                          <p>The activties I did were :</p>
-                        </div>
-                        <div id="awards" class="tab-pane fade">
-                          <h3>Awards</h3>
-                          <p>The Awards I won were :</p>
-                        </div>
-                      </div>
+                    <div class="col-lg-12 text-center">
+                        <h2 class="title-white">Let me introduce myself</h2>
+                        <hr class="star-light">
                     </div>
+                    <div class="container">
+                    <p class="title-white">
+                        As a Masters student in Computer Science I strive for high quality delivery of software that will solve real-life business problems. Learning and sharpening my programming and analytic skills right from my high-school days  I continue to advance my technical skills at CU-Boulder.
+                    </p>
+                    <br>
+                    <p class="title-white">
+                        Currently I am focused on designing web solutions purely from the functional user's perspective in my course "User-Centered Design" and learning Node.js and its specific libraries. I have worked with diverse technologies and gained industry and college-level experience while working with Professionals, Professors and colleagues in both individual and team environment.
+                    </p>
+                    <br>
+                    <p class="title-white">
+                        I am passionate towards big data solutions and am actively seeking an internship in the domain of Software Solutions, Big Data technologies and performance-oriented programming.
+                    </p>
+                    </div>
+                </div>
+        </section>
 
-       </div>
-        </div>
-    </section>
+        <!-- Portfolio Grid Section -->
+        <section id="portfolio">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="title-white">Portfolio</h2>
+                        <hr class="star-light">
+                        <h4 class="title-white">These are some of the designs I have completed. I am currently developing clickable wireframes and virtual reality applications. </h4>
+                        <h4>Watch this section for more .... </h4>
+                    </div>
+                </div>
 
+                <div class="row">
+                    <div class="col-sm-4 portfolio-item">
+                        <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <i class="fa fa-search-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img src="portfolios\Tanvi-Catherine-VR2\images\spaceship.png" height="300" width="360" alt="">
+                        </a>
+                    </div>
+                    <div class="col-sm-4 portfolio-item">
+                        <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <i class="fa fa-search-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img src="portfolios\cisco-lunch-connect\csc.png" height="300" width="360" alt="">
+                        </a>
+                    </div>
+                    <!--<div class="col-sm-4 portfolio-item">
+                        <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <i class="fa fa-search-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img src="img/portfolio/circus.png" class="img-responsive" alt="">
+                        </a>
+                    </div>
+                    <div class="col-sm-4 portfolio-item">
+                        <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <i class="fa fa-search-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img src="img/portfolio/game.png" class="img-responsive" alt="">
+                        </a>
+                    </div>
+                    <div class="col-sm-4 portfolio-item">
+                        <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <i class="fa fa-search-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img src="img/portfolio/safe.png" class="img-responsive" alt="">
+                        </a>
+                    </div>
+                    <div class="col-sm-4 portfolio-item">
+                        <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <i class="fa fa-search-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
+                        </a>
+                    </div>-->
+                </div> 
+            </div>
+        </section>
+
+        <!-- CV Section -->
+        <section id="about">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="title-white">CV</h2>
+                        <hr class="star-light">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container">
+                        
+                          <ul class="nav nav-tabs js-tabs-example">
+                            <li class="active"><a data-toggle="tab" href="#education"><h5>Education</h5></a></li>
+                            <li><a data-toggle="tab" href="#workex" ><h5>Work Exp.</h5></a></li>
+                            <li><a data-toggle="tab" href="#projects"><h5>Projects</h5></a></li>
+                            <li><a data-toggle="tab" href="#awards"><h5>Awards</h5></a></li>
+                            <li><a data-toggle="tab" href="#activities"><h5>Activities</h5></a></li>
+                         </ul>
+
+                          <div class="tab-content">
+                          <!-- E D U C A T I O N -->
+                            <div id="education" class="tab-pane fade in active">
+                            <h3> Fall 2014-Summer 2016 </h3>
+                              <p>Masters in Computer Science @ <b>University of Colorado Boulder, USA</b> </p>
+                              <div class="well well-sm tech-well">
+                              <ul>Relevant Coursework
+                                <li>User Experience Design by <i>Prof. Tom Yeh </i></li>
+                                <li>User-centred Design & Development by <i>Prof. Clayton Lewis</i></li>
+                                <li>Softwware Engineering by <i>Prof. Ken Anderson</i></li>
+                                <li>Virtual Reality (Unity Programming) by <i>Prof. Dan Szafir</i> </li>
+                                <li>Data Center Scale Computing (Big Data Technologies) by <i>Prof. Dirk Grunwald</i></li>
+                                <li>Network Systems by <i>Prof. Shiv Mishra</i></li>
+                                <li>Algorithms by <i>Prof. John Black</i> </li>
+                            </ul>
+                            </div>
+                            <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
+                            <h3> Fall 2009-Summer 2013 </h3>
+                              <p>Bachelor of Computer Engineering @ <b>University of Mumbai, India</b></p>
+                              <div class="well well-sm tech-well">
+                              <ul>Relevant Coursework
+                                <li>C and C++ Programming</li>
+                                <li>Data Structures and Files</li>
+                                <li>Java Programming</li>
+                                <li>Advanced Java (with swing)</li>
+                                <li>Computer Organization & Architecture</li>
+                                <li>Microprocessor & System Programming</li>
+                                <li>Advanced Microprocessors</li>
+                                <li>Web Design & Engineering</li>
+                                <li>Distributed Systems</li>
+                                <li>Image Processing</li>
+                                <li>Computer Networks</li>
+                                <li>Advanced Computer Networks</li>
+                                <li>Object Oriented Analysis & Design</li>
+                                <li>E-commerce Applications</li>
+                            </ul>
+                            </div>
+                            <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
+                            <h3> Fall 2007-Summer 2009 </h3>
+                              <p>High School(Computer Science) @ <b>R. N Podar CBSE School</b></p>
+                        </div>
+                            <!-- W O R K E X -->
+                            <div id="workex" class="tab-pane fade">
+                            <!-- cisco -->
+                            <h4>Professional Work Experience </h4>
+                            <h3>Software Engineer Intern @ <b>Cisco Systems Inc.</b></h3>
+                                <div class="well well-sm time-well">Summer 2015</div>
+                                <div class="well well-sm tech-well">Java Spring, Hibernate, Maven, IntelliJ, Rally, Bootstrap, HTML5, CSS, Axure, MongoDB, Git/Gerrit, Postman REST Client</div>
+                                <div class="well well-sm desc-well">
+                                    <ul>
+                                        <li>My role comprised writing functional & unit test for the Java REST APIs of the Hybrid Cloud Product.</li>
+                                        <li>Given an opportunity to work with the UX-Design team to develop clickable wireframes for several usecases of the product.</li>
+                                        <li>Participated in several intern-events and gained leadership exposure</li>
+                                        <li>Announced <a href="https://github.com/tapa8728/Cisco-Lunch-Connect">Cisco Lunch Connect</a> as "Best Innovation Project" for the innovation prjoject challenge amongst 30 interns.</li>
+                                    </ul>
+                                </div>
+                                <hr>
+                            <!--Capgemini -->
+                            <h3>Software Engineer @ <b>Capgemini Mumbai, India</b></h3>
+                                <div class="well well-sm time-well">Nov 2013-August 2014</div>
+                                <div class="well well-sm tech-well">Enovia(Dassault Systemes Inc), SVN, Java, MQL, SQLServer, tcl, Apache Tomcat </div>
+                                <div class="well well-sm desc-well">
+                                    <ul>
+                                        <li>My role comprised developing Product-based Software for client General Electric using the tool Enovia by Dassault Systems</li>
+                                        <li>Part of a 30-member team that built the product using the Iterative development Model</li>
+                                        <li>Extensive defect solving and fault-detection through regression testing of previously developed code.</li>
+                                        <li>Shortly worked on Dimensional-Data analysis using the tool IBM Cognos TM1.</li>
+                                    </ul>
+                                </div>
+                                <hr>
+                            <!-- L & T -->
+                            <h3>Software Engineer Trainee @ Larsen & Toubro India</h3>
+                                <div class="well well-sm time-well">Spring 2015</div>
+                                <div class="well well-sm desc-well">Microsoft Visual Studio, ASP.NET, Java, Javascript, MySQL, HTML, CSS</div>
+                                <div class="well well-sm desc-well">
+                                    <ul>
+                                        <li>My role comprised of exhaustive end-to-end testing of the Intranet Website and shortlist flaws and complex interface-navigation paths</li>
+                                        <li>Given an opportunity to fix the user-interface and implemented floating menus and buttons using CSS3 in ASP.Net to reduce navigation time by 50%</li>
+                                        <li>Gained overall experience in developing daily reports and meeting deadlines.</li>
+                                    </ul>
+                                </div>
+                             
+                             <h4>On-Campus Work Experience</h4>
+                             <h3>International Admissions Intern @ Admissions Office CU-Boulder</h3>
+                                <div class="well well-sm time-well">Fall 2014</div>
+                                <div class="well well-sm desc-well">
+                                   Handle incoming emails & questions from prospective students and provide valuable information and guidance to leading a successful student career at CU-Boulder.
+                                </div>
+                            <hr>
+                            <h3>CU Bookstore Representative </h3>
+                                <div class="well well-sm time-well">Fall 2014</div>
+                                <div class="well well-sm desc-well">
+                                   Part of the student group that helped the CU Bookstore suring rush-hour at the beginning og the semester. I had acquired this role overseas from India before I started school.
+                                </div>
+                            <hr>
+
+                            </div>
+                            <!-- P R O J E C T S -->
+                            <div id="projects" class="tab-pane fade">
+                              
+                              <!-- Project 1 -->
+                                    <h3 class="animated bounce">“Thinker” – Academic Spin-off of Tinder      <a href="https://github.com/tapa8728" target="_false" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a></h3>
+                                        <div class="well well-sm tech-well">Node.js, ReactJs, Bootstrap, Macaw, MongoDB  </div>
+                                        <div class="well well-sm desc-well">Led a team of 3 using Rapid-Prototyping to develop a web-service that will match student or tutor profiles based on interests, location, courses to promote “study-buddies” and offline tutoring. Designed the recommendation algorithm to improve match-accuracy.</div>
+                                    <hr class="primary">
+                                    <!-- Project 2 -->
+                                    <h3 class="animated bounce">“Twiner” - Tweet Miner<a href="https://github.com/tapa8728" target="_false" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a></h3>
+                                        <div class="well well-sm tech-well">Python, Apache Storm, MongoDB, AWS (cluster)</div>                   
+                                        <div class="well well-sm desc-well">Developed a web-based application for real-time twitter data processing using Apache Storm for data analysis i.e. Popularity Index, frequency & observing time, location and user trends. Observed implementation on cluster.</div>
+                                    <hr class="primary">
+                                    <!-- Project 3 -->
+                                    <h3 class="animated bounce">Patent Data Analytics<a href="https://github.com/tapa8728" target="_false" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a></h3>
+                                        <div class="well well-sm tech-well">Python, Apache Spark, Hadoop-MapReduce, PIG, MongoDB, AWS Hadoop cluster</div>
+                                        <div class="well well-sm desc-well">Implementing various Big Data technologies - Hadoop MapReduce, PIG, Spark, Apache Storm to test the performance of the patent-state problem over the Linux Platform. Data set provided and loaded into Mongo to  perform performance and memory comparison between the technologies.</div>
+                                    <hr class="primary">
+                                    <!-- project 4 -->
+                                    <h3 class="animated bounce">Concurrent Network Stack Implementation for Performance Analysis<a href="https://github.com/tapa8728" target="_false" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a></h3>
+                                        <div class="well well-sm tech-well">C, C++, Pthreads, Pointers, Semaphores, Mutexes, Eclipse</div>
+                                        <div class="well well-sm desc-well">Constructed the ISO-OSI protocol stack using TCP/IP & UDP socket programming, multithreading & Linux system calls to analyze performance by exchanging large number of messages concurrently between hosts. </div>
+                                    <hr class="primary">
+                                    <!-- Project 5 -->
+                                    <h3 class="animated bounce">“Social Dining” - iOS Application </h3> 
+                                        <div class="well well-sm tech-well">Xcode, Objective C, Axure, MongoDB, Apache Server, Maven</div>
+                                        <div class="well well-sm desc-well">Research Assistant for studying "Group Behavioral Patterns" and part fo the team developing the application. Played a central role in product design and marketing strategy to increase customer base. </div>
+                                    <hr class="primary">
+                                    <!-- Project 6 -->
+                                    <h3 class="animated bounce">Study Portal</h3> 
+                                        <div class="well well-sm tech-well">Rally, PHP, HTML5, CSS, WAMP, Javascript</div>
+                                        <div class="well well-sm desc-well">Led a team of four using Spiral SDLC & decreased post-production design changes with Technologies used – MS Access, PHP, JavaScript and Photoshop for UI. Chosen as the Official College Website by the Head of Department.</div>
+                                    <hr class="primary">
+                                    <!-- Project 7 -->
+                                    <h3 class="animated bounce">"Smart Vote"- Android Application </h3> 
+                                        <div class="well well-sm tech-well">Java, Android SDK, Illustrator, SQLite, Push notifications, </div>
+                                        <div class="well well-sm desc-well">kkdlfklsdfjsklddjfslddkjsddkljsdlkfjslkfjsdldfjsdlkfj </div>
+                                    <hr class="primary">
+                                    <!-- Project 8 -->
+                                    <h3 class="animated bounce">Alumni Database System</h3> 
+                                        <div class="well well-sm tech-well">Database Express, HTML, CSS, Photoshop, Javascript </div>
+                                        <div class="well well-sm desc-well">Led a team of four and used Spiral SDLC to qualitatively shorten design iteration cycles & awarded “Most Creative Project” for design and functionality.</div>
+                                    <hr class="primary">
+                            </div>
+                            <!-- A C T I V I T I E S-->
+                            <div id="activities" class="tab-pane fade">
+
+                              <h3>CU GOLD Leadership Program</h3>
+                              <ul class="fa-ul">
+                                    <li><i class="fa fa-shield fa-rotate-270 fa-pulse"></i>Participated in a semester long activity and explored various leadership styles and techniques. 
+                                    <li><i class="fa fa-shield fa-rotate-270 fa-pulse"></i>Attended a bootcamp at Estes Park and indulged in many group-activities that helped shine the leader in each one of us.</li>
+                                    <li><i class="fa fa-shield fa-rotate-270 fa-pulse"></i>Completed the activity with a <a href="http://prezi.com/kpmxohu9crzf/?utm_campaign=share&utm_medium=copy&rc=ex0share" target="_blank">Personal Statement</a></li>
+                              </ul>
+                              <hr>
+                              <h3>Capgemini Charity Contribution - Paint Tattoo Stall </h3>
+                              <ul class="fa-ul">
+                                    <li><i class="fa fa-shield fa-rotate-270 fa-pulse"></i>Led and managed the tattoo stall for the WeKare Charity at Capgemini Mumbai in February 2014</li>
+                                    <li><i class="fa fa-shield fa-rotate-270 fa-pulse"></i>Made the second highest collections</li>
+                             </ul>
+                              <hr>
+                              <h3>Creative Head at "Ensemble" </h3>
+                              <ul class="fa-ul">
+                                    <li><i class="fa fa-shield fa-rotate-270"></i>Designed the decoration for the Ensemble Cultural Fest at Watumull College Mumbai for the year 2013.</li>
+                                    <li><i class="fa fa-shield fa-rotate-270"></i>Led 40 people and was given an award for creativity by the Principle of the college.</li>
+                                    <li><i class="fa fa-shield fa-rotate-270"></i>Managed budget and resources single-handedly.</li>
+                              </ul>
+                              <hr>
+                              <h3>Magazine Commitee - Assistant Editor </h3>
+                              <ul>
+                                    <li><i class="fa fa-shield fa-rotate-270"></i>Worked as the editor for the yearly magazine of Watumull College.</li>
+                                    <li><i class="fa fa-shield fa-rotate-270"></i>Designed the cover page, layout of the magazine using Photoshop & CorelDraw.</li>
+                                    <li><i class="fa fa-shield fa-rotate-270"></i>Published three articles and two poems as a part of my contribution for the magazine.</li>
+                              </ul>
+                              <hr>
+                            </div>
+                            <!-- A W A R D S-->
+                            <div id="awards" class="tab-pane fade">
+                                <h3>Research Assistant at Institute of Behavioral Genetics</h3>
+                                <div class="well well-sm tech-well">Fall 2015 - Spring 2016(expected)</div>
+                                <div class="well well-sm desc-well">
+                                    <ul>I am a part of the development team for the Facebook Application "Genes for Good". My responsibilities include -
+                                        <li>Merging a flask-based feature with php-based GFG & creatively rendering the  user experience for the application.</li>
+                                        <li> Using D3.js, jpgraph and HighChart.js to represent genetic survey data for individual & group participants in intuitive and interactive format. </li>
+                                        <li>Overall updating the application and minor bug-fixing(if any)</li>
+                                        <li>Project details found at <a href="https://genesforgood.sph.umich.edu/about_us" target="_blank">Genes for Good</a>.</li>
+                                    </ul>
+                                </div>
+                                <hr>
+                                <h3>Teaching Assistant for Object Oriented Analysis & Design</h3>
+                                <div class="well well-sm tech-well">Spring 2015</div>
+                                <div class="well well-sm desc-well">
+                                    <ul>
+                                        <li>My role comprised teaching & grading 104 Senior-year students single-handedly details about maintaining and nurturing a business-client relationship by assisting them in developing object-oriented solutions that implement correct Design principles.</li>
+                                        <li>Personally interacting and guiding students via grading interviews.</li>
+                                        <li>Conducted lectures in the absence of the Professor</li>
+                                        <li>Solving course-related queries from students via email</li>
+                                    </ul>
+                                </div>
+                                <hr>
+                                <h3>University of Colorado Boulder Fellowship Award </h3>
+                                <div class="well well-sm tech-well">Fall 2014</div>
+                                <div class="well well-sm desc-well">Recieved award at the advent of the Master's program by the CS department for tehcnical capability.</div>
+                                <hr>
+                                <h3>University of Mumbai - Watumull College - Student Performance Award </h3>
+                                <div class="well well-sm tech-well">Fall 2014</div>
+                                <div class="well well-sm desc-well">Recieved award at the annual event of Watumull College for graduating from in top 5% of the class.</div>
+
+                            </div>
+                          </div>
+                        </div>
+
+           </div>
+            </div>
+        </section>
+
+    </div>
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
@@ -295,7 +534,7 @@ Led a team of four and used Spiral SDLC to qualitatively shorten design iteratio
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-success btn-lg">Send</button>
+                                <button type="submit" class="btn btn-success btn-lg animated infinite bounce">Send</button>
                             </div>
                         </div>
                     </form>
@@ -304,6 +543,27 @@ Led a team of four and used Spiral SDLC to qualitatively shorten design iteratio
         </div>
     </section>
 
+    <div id="grad1">
+        <section id="contact-info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <h2 class="section-heading">Let's Get In Touch!</h2>
+                        <hr class="primary">
+                        <p>I would love to hear from you about feedback on my website or any suitable career opportunities.</p>
+                    </div>
+                    <div class="col-lg-4 col-lg-offset-2 text-center">
+                        <i class="fa fa-phone fa-3x animated infinite tada"></i>
+                        <p>720-545-7950</p>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <i class="fa fa-envelope-o fa-3x animated infinite tada" data-wow-delay=".1s"></i>
+                        <p><a href="mailto:your-email@your-domain.com">Tanvi.Parikh@colorado.edu</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
     
     <!-- Footer -->
     <footer class="text-center">
@@ -567,6 +827,7 @@ Led a team of four and used Spiral SDLC to qualitatively shorten design iteratio
 
     <!-- Custom Theme JavaScript -->
    <script src="js/freelancer.js"></script>
+   <script src="js/bootstrap-responsive-tabs.js"></script>
 
 </body>
 </html>
